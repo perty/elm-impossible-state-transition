@@ -31,54 +31,30 @@ initOrder order =
 
 
 process : InitialOrder order -> ProcessingOrder order
-process initial =
-    let
-        (InitialOrder order) =
-            initial
-    in
+process (InitialOrder order) =
     ProcessingOrder order
 
 
 cancelProcessing : ProcessingOrder order -> CancelledOrder order
-cancelProcessing processing =
-    let
-        (ProcessingOrder o) =
-            processing
-    in
+cancelProcessing (ProcessingOrder o) =
     CancelledOrder o
 
 
 cancelInitial : InitialOrder order -> CancelledOrder order
-cancelInitial processing =
-    let
-        (InitialOrder order) =
-            processing
-    in
+cancelInitial (InitialOrder order) =
     CancelledOrder order
 
 
 ship : ProcessingOrder order -> ShippingOrder order
-ship processing =
-    let
-        (ProcessingOrder order) =
-            processing
-    in
+ship (ProcessingOrder order) =
     ShippingOrder order
 
 
 shipped : ShippingOrder order -> ShippedOrder order
-shipped shipping =
-    let
-        (ShippingOrder order) =
-            shipping
-    in
+shipped (ShippingOrder order) =
     ShippedOrder order
 
 
 loose : ShippingOrder order -> LostOrder order
-loose shipping =
-    let
-        (ShippingOrder order) =
-            shipping
-    in
+loose (ShippingOrder order) =
     LostOrder order
